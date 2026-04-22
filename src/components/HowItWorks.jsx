@@ -7,14 +7,19 @@ export default function HowItWorks({ label, title, steps = [] }) {
       <h2 className="section-title">{title}</h2>
 
       <div className="steps-grid">
-        {steps.map((step) => (
+      {steps.map((step, index) => (
+        <div
+          key={step.number}
+          className="reveal-item"
+          style={{ transitionDelay: `${index * 0.15}s` }}
+        >
           <StepCard
-            key={step.number}
             number={step.number}
             title={step.title}
             text={step.text}
           />
-        ))}
+        </div>
+      ))}
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ export default function RevealOnScroll({ children }) {
         }
       },
       {
-        threshold: 0.35,
+        threshold: 0.15,
       }
     );
 

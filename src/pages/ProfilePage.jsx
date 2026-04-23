@@ -1,37 +1,12 @@
 import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import ProfilePreview from "../components/ProfilePreview";
-
-const profiles = {
-  "marko-keramika": {
-    name: "Marko Keramika",
-    category: "Keramičar",
-    description:
-      "Precizna ugradnja pločica, kupatila i kuhinja, uz jasan kontakt i pregled radova na jednom mestu.",
-    location: "Beograd",
-    phone: "+381 64 123 4567",
-  },
-  "ana-beauty-studio": {
-    name: "Ana Beauty Studio",
-    category: "Kozmetički salon",
-    description:
-      "Nega lica, tretmani i profesionalan pristup u toplom, elegantnom prostoru.",
-    location: "Novi Sad",
-    phone: "+381 63 222 333",
-  },
-  "petar-elektro": {
-    name: "Petar Elektro",
-    category: "Električar",
-    description:
-      "Instalacije, popravke i intervencije za stanove, kuće i poslovne prostore.",
-    location: "Niš",
-    phone: "+381 65 444 555",
-  },
-};
+import { profiles } from "../data/profiles";
 
 export default function ProfilePage() {
   const { slug } = useParams();
-  const profile = profiles[slug];
+
+  const profile = profiles.find((item) => item.slug === slug);
 
   if (!profile) {
     return (
@@ -55,6 +30,11 @@ export default function ProfilePage() {
         description={profile.description}
         location={profile.location}
         phone={profile.phone}
+        email={profile.email}
+        website={profile.website}
+        image={profile.image}
+        about={profile.about}
+        services={profile.services}
       />
     </Layout>
   );

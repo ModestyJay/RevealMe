@@ -5,7 +5,7 @@ export default function Actions({ primaryText, secondaryText }) {
     <div className="actions">
       <button className="btn btn-primary">{primaryText}</button>
 
-      <Link to="/profil/marko-keramika" className="btn btn-secondary btn-link">
+      <Link to="/profil/marko-elektricar" className="btn btn-secondary btn-link">
         {secondaryText}
       </Link>
     </div>

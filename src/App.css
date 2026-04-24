@@ -123,17 +123,6 @@ a {
   margin-bottom: 16px;
 }
 
-.search-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  background: #efe7dc;
-  color: #6b5840;
-}
-
 .search-name {
   margin: 0;
   font-size: 1.1rem;
@@ -337,22 +326,6 @@ a {
   gap: 4px;
 }
 
-.avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: #efe7dc;
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .profile-name {
   font-size: 30px;
   line-height: 1.1;
@@ -497,20 +470,84 @@ a {
   transform: translateY(0);
 }
 
-.search-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: #efe7dc;
+.profile-card-main {
+  text-align: center;
 }
 
-.search-avatar img {
+.profile-top-centered {
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-headings {
+  align-items: center;
+  text-align: center;
+}
+
+.profile-location {
+  margin: 4px 0 0;
+  color: #7b746c;
+  font-size: 15px;
+}
+
+.profile-description-centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.profile-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.profile-extra-card {
+  max-width: 760px;
+  margin: 20px auto 0;
+  padding: 28px 32px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(47, 42, 38, 0.08);
+  box-shadow: 0 12px 34px rgba(47, 42, 38, 0.06);
+}
+
+.profile-section-heading {
+  margin: 0 0 14px;
+  font-size: 22px;
+  color: #11110f;
+}
+
+.profile-extra-text {
+  margin: 0;
+  line-height: 1.75;
+  color: #4f4943;
+}
+
+.services-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #4f4943;
+  line-height: 1.8;
+}
+
+.btn-full {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+}
+
+@media (max-width: 520px) {
+  .profile-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card-main {
+    padding: 24px 20px;
+  }
+
+  .profile-extra-card {
+    padding: 24px 20px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -589,10 +626,4 @@ a {
     gap: 14px;
   }
 
-  .avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
-    font-size: 22px;
-  }
 }

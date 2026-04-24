@@ -28,8 +28,8 @@ export const profiles = [
       location: "Novi Sad",
       description: "Fotografisanje venčanja, portreta i malih biznisa.",
       phone: "062 222 111",
-      email: "studiolana@example.com",
-      website: "www.studioluna.rs",
+      email: "kradljivica@gmail.com",
+      website: "www.fondanplusdekor.com",
       image: "/images/luna.jpg",
       about:
         "Pomažem klijentima da dobiju uredno, precizno i dugotrajno završene keramičarske radove, bez komplikacija i nejasne komunikacije.",
@@ -42,7 +42,7 @@ export const profiles = [
     },
     {
       id: 3,
-      slug: "Nena-frizer",
+      slug: "nena-frizer",
       name: "Nena Frizer",
       category: "Frizer",
       location: "Beograd",

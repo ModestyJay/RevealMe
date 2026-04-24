@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Avatar from "./Avatar/Avatar";
 
 export default function ProfileSearchCard({
     slug,
@@ -13,13 +14,7 @@ export default function ProfileSearchCard({
       <Link to={`/profil/${slug}`} className="search-card-link">
         <article className="search-card">
           <div className="search-card-top">
-          <div className="search-avatar">
-                {image ? (
-                <img src={image} alt={name} />
-                ) : (
-                name.charAt(0)
-                )}
-            </div>
+          <Avatar name={name} category={category} image={image} />
   
             <div>
               <h3 className="search-name">{name}</h3>

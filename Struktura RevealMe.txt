@@ -1,0 +1,122 @@
+REVEALME/
+├── node_modules/
+├── public/
+│   ├── images/
+│   │   ├── favicon.svg
+│   │   ├── icons.svg
+│   │   ├── marko-elektricar.jpg
+│   │   └── react.svg
+│   ├── assets/
+│   │   └── hero.png
+│   ├── index.html
+│   ├── react.svg
+│   └── vite.svg
+│
+├── src/
+│   ├── components/
+│   │   ├── Actions.jsx
+│   │   ├── Avatar/
+│   │   │   ├── Avatar.jsx
+│   │   │   └── Avatar.module.css
+│   │   ├── Features.jsx
+│   │   ├── Hero.jsx
+│   │   ├── HowItWorks.jsx
+│   │   ├── Layout.jsx
+│   │   ├── ProfilePreview.jsx
+│   │   ├── ProfileSearch.jsx
+│   │   ├── ProfileSearchCard.jsx
+│   │   ├── RevealOnScroll.jsx
+│   │   └── StepCard.jsx
+│   │
+│   ├── data/
+│   │   ├── categoryColors.js
+│   │   └── profiles.js
+│   │
+│   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   └── ProfilePage.jsx
+│   │
+│   ├── utils/
+│   │   └── getInitials.js
+│   │
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+
+
+Objašnjenje strukture
+1. public/ folder
+
+images/: Čuva sve statične slike (npr. marko-elektricar.jpg, favicon.svg).
+assets/: Za druge statične fajlove (npr. hero.png).
+index.html: Glavni HTML fajl (ulazna tačka za Vite).
+
+2. src/ folder
+components/
+
+Avatar/: Zaseban folder za Avatar komponentu i njen CSS modul (jer je kompleksnija).
+
+Avatar.jsx: Logika komponente.
+Avatar.module.css: Stilovi (izolovani zahvaljujući CSS Module).
+
+Ostale komponente: Svaka komponenta je u zasebnom fajlu (npr. Hero.jsx, ProfilePreview.jsx).
+Layout.jsx: Komponenta za zajednički layout (header, footer, itd.).
+data/
+
+profiles.js: Podaci o profilima (mock podaci).
+categoryColors.js: Boje za kategorije (koristi se u Avatar).
+pages/
+
+HomePage.jsx: Početna strana.
+ProfilePage.jsx: Stranica pojedinačnog profila.
+utils/
+
+getInitials.js: Pomocna funkcija za dobijanje inicijala.
+Ostali fajlovi
+
+App.jsx: Glavna komponenta (rute).
+main.jsx: Ulazna tačka aplikacije (mount-uje App).
+index.css/App.css: Globalni stilovi.
+
+3. Korenski fajlovi
+
+package.json: Zavisnosti i skripte.
+vite.config.js: Konfiguracija za Vite (ako koristiš Vite umesto CRA).
+.gitignore: Koje fajlove ignorisati u Git-u.
+eslint.config.js: Konfiguracija za ESLint (linting koda).
+
+
+Zašto baš ova struktura?
+
+
+Modularnost:
+
+Svaka komponenta je u zasebnom fajlu → lakše održavanje.
+Avatar ima svoj folder jer ima i CSS modul.
+
+
+Skalabilnost:
+
+Ako dodaješ nove stranice, jednostavno ih dodajes u pages/.
+Ako dodaješ nove komponente, ideju u components/.
+
+
+Organizacija:
+
+Podaci (data/) i util funkcije (utils/) su razdvojeni od komponenti.
+Stilovi su izolovani (CSS Module) ili globalni (index.css).
+
+
+Best practices:
+
+Koristiš CSS Module za komponente koje se koriste na više mesta (npr. Avatar).
+Statičke slike su u public/images/ (pristupa se putanjom /images/slika.jpg).
+

@@ -4,6 +4,7 @@ import Actions from "../components/Actions";
 import HowItWorks from "../components/HowItWorks";
 import Features from "../components/Features";
 import RevealOnScroll from "../components/RevealOnScroll";
+import ProfileSearch from "../components/ProfileSearch";
 
 const howItWorksSteps = [
   {
@@ -51,6 +52,10 @@ export default function HomePage() {
         primaryText="Kreiraj profil"
         secondaryText="Pogledaj primer"
       />
+
+      <RevealOnScroll>
+        <ProfileSearch />
+      </RevealOnScroll>
 
       <RevealOnScroll>
         <HowItWorks

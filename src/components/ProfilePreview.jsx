@@ -1,5 +1,8 @@
+import { useState } from "react";
+import ContactForm from "./ContactForm/ContactForm";
 import Avatar from "./Avatar/Avatar";
 import Button from "./Button/Button";
+
 
 export default function ProfilePreview({
   name,
@@ -12,6 +15,7 @@ export default function ProfilePreview({
   image,
   about,
   services = [],
+  images = [],
 }) {
   const cleanPhone = phone?.replace(/\s+/g, "") || "";
 
@@ -32,6 +36,7 @@ END:VCARD
 `.trim();
 
   const contactHref = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`;
+  const [showContactForm, setShowContactForm] = useState(false);
 
   return (
     <section className="profile-preview">
@@ -51,13 +56,16 @@ END:VCARD
         </p>
 
         <div className="profile-actions profile-actions-grid">
-        <Button href={`tel:${phone}`} fullWidth>
-          Pozovi
-        </Button>
+            <Button href={`tel:${cleanPhone}`} fullWidth>
+              Pozovi
+            </Button>
 
-          {email && (
-            <Button href={`mailto:${email}`} variant="secondary">
-              Pošalji mail
+        {email && (
+            <Button
+              variant="secondary"
+              onClick={() => setShowContactForm(true)}
+            >
+              Pošalji e-mail
             </Button>
           )}
 
@@ -77,11 +85,30 @@ END:VCARD
         </div>
       </article>
 
+      {showContactForm && email && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowContactForm(false)}
+        >
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ContactForm
+              profileName={name}
+              profileEmail={email}
+              onClose={() => setShowContactForm(false)}
+            />
+          </div>
+        </div>
+      )}
+
       {about && (
         <article className="profile-extra-card">
           <h2 className="profile-section-heading">O nama</h2>
           <p className="profile-extra-text">{about}</p>
         </article>
+        
       )}
 
       {services.length > 0 && (
@@ -92,6 +119,20 @@ END:VCARD
               <li key={service}>{service}</li>
             ))}
           </ul>
+        </article>
+      )}
+
+      {images.length > 0 && (
+        <article className="profile-extra-card">
+          <h2 className="profile-section-heading">Radovi</h2>
+
+          <div className="gallery-grid">
+            {images.map((img, index) => (
+              <div key={index} className="gallery-item">
+                <img src={img} alt={`${name} rad ${index + 1}`} />
+              </div>
+            ))}
+          </div>
         </article>
       )}
     </section>

@@ -2,6 +2,7 @@
     width: 76px;
     height: 76px;
     flex: 0 0 76px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(135deg, #ffffff, #e9e2d8);
@@ -57,6 +58,9 @@
     .avatar {
       width: 56px;
       height: 56px;
+      flex: 0 0 56px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
     }
   
     .avatarFallback {

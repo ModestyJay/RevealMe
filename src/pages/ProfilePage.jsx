@@ -34,7 +34,8 @@ export default function ProfilePage() {
         website={profile.website}
         image={profile.image}
         about={profile.about}
-        services={profile.services}
+        services={profile.services}  
+        images={profile.images}      
       />
     </Layout>
   );

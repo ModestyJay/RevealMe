@@ -24,6 +24,10 @@ export const profiles = [
       "/images/rad2.jpg",
       "/images/rad3.jpg",
     ],
+    socials: {
+      instagram: "https://www.instagram.com/studio.luna",
+      facebook: "https://www.facebook.com/studio.luna"
+    }
     },
     {
       
@@ -50,6 +54,10 @@ export const profiles = [
         "/images/foto2.jpg",
         "/images/foto3.jpg",
       ],
+      socials: {
+        instagram: "https://www.instagram.com/studio.luna",
+        facebook: "https://www.facebook.com/studio.luna"
+      }
     },
     {
       id: 3,
@@ -75,6 +83,10 @@ export const profiles = [
         "/images/rad2.jpg",
         "/images/rad3.jpg",
       ],
+      socials: {
+        instagram: "https://www.instagram.com/studio.luna",
+        facebook: "https://www.facebook.com/studio.luna"
+      }
     },
     {
       id: 4,
@@ -100,5 +112,9 @@ export const profiles = [
         "/images/rad2.jpg",
         "/images/rad3.jpg",
       ],
+      socials: {
+        instagram: "https://www.instagram.com/studio.luna",
+        facebook: "https://www.facebook.com/studio.luna"
+      }
     },
   ];

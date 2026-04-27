@@ -6,28 +6,39 @@ export default function ProfileSearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
+  
+  const normalizedSearch = searchTerm.trim().toLowerCase();
 
-  const categories = [...new Set(profiles.map((profile) => profile.category))];
-  const locations = [...new Set(profiles.map((profile) => profile.location))];
+const categories = [...new Set(profiles.map((profile) => profile.category))]
+  .sort();
 
-  const hasSearch =
-    searchTerm.trim() !== "" ||
-    selectedCategory !== "" ||
-    selectedLocation !== "";
+const locations = [...new Set(profiles.map((profile) => profile.location))]
+  .sort();
 
-  const filteredProfiles = profiles.filter((profile) => {
-    const matchesName = profile.name
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+const hasSearch =
+  normalizedSearch !== "" ||
+  selectedCategory !== "" ||
+  selectedLocation !== "";
 
-    const matchesCategory =
-      selectedCategory === "" || profile.category === selectedCategory;
+const filteredProfiles = profiles.filter((profile) => {
+  const searchableText = `
+    ${profile.name}
+    ${profile.category}
+    ${profile.location}
+    ${profile.description}
+  `.toLowerCase();
 
-    const matchesLocation =
-      selectedLocation === "" || profile.location === selectedLocation;
+  const matchesText =
+    normalizedSearch === "" || searchableText.includes(normalizedSearch);
 
-    return matchesName && matchesCategory && matchesLocation;
-  });
+  const matchesCategory =
+    selectedCategory === "" || profile.category === selectedCategory;
+
+  const matchesLocation =
+    selectedLocation === "" || profile.location === selectedLocation;
+
+  return matchesText && matchesCategory && matchesLocation;
+});
 
   return (
     <section className="profile-search">
@@ -72,6 +83,20 @@ export default function ProfileSearch() {
           ))}
         </select>
       </div>
+
+      {hasSearch && (
+        <button
+          type="button"
+          className="clear-search-btn"
+          onClick={() => {
+            setSearchTerm("");
+            setSelectedCategory("");
+            setSelectedLocation("");
+          }}
+        >
+          Očisti pretragu
+        </button>
+      )}
 
       {!hasSearch && (
         <p className="search-hint">

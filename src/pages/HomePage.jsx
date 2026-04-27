@@ -50,7 +50,9 @@ export default function HomePage() {
 
       <Actions
         primaryText="Kreiraj profil"
+        primaryHref="/registracija"
         secondaryText="Pogledaj primer"
+        secondaryHref="/profil/marko-keramika"
       />
 
       <RevealOnScroll>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import ContactForm from "./ContactForm/ContactForm";
 import Avatar from "./Avatar/Avatar";
 import Button from "./Button/Button";
+import { QRCodeSVG } from "qrcode.react";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 
 
 export default function ProfilePreview({
@@ -16,27 +18,38 @@ export default function ProfilePreview({
   about,
   services = [],
   images = [],
+  socials,
 }) {
   const cleanPhone = phone?.replace(/\s+/g, "") || "";
 
-  const websiteUrl = website?.startsWith("http")
+  const websiteUrl = website
+  ? website.startsWith("http")
     ? website
-    : `https://${website}`;
+    : `https://${website}`
+  : "";
 
   const vCard = `
 BEGIN:VCARD
 VERSION:3.0
 FN:${name}
 TEL:${cleanPhone}
-EMAIL:${email || ""}
-URL:${websiteUrl || ""}
-ADR:;;${location || ""};;;;
-NOTE:${description || ""}
+${email ? `EMAIL:${email}` : ""}
+${websiteUrl ? `URL:${websiteUrl}` : ""}
+${location ? `ADR:;;${location};;;;` : ""}
+${description ? `NOTE:${description}` : ""}
 END:VCARD
 `.trim();
 
   const contactHref = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`;
   const [showContactForm, setShowContactForm] = useState(false);
+  const copyProfileLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("Link profila je kopiran.");
+    } catch (error) {
+      alert("Nisam uspeo da kopiram link.");
+    }
+  };
 
   return (
     <section className="profile-preview">
@@ -82,8 +95,44 @@ END:VCARD
           >
             Dodaj kontakt
           </a>
+
+          <Button variant="secondary" onClick={copyProfileLink}>
+            Kopiraj link
+          </Button>
         </div>
       </article>
+
+      {socials && (socials.instagram || socials.facebook) && (
+        <article className="profile-extra-card">
+          <h2 className="profile-section-heading">Društvene mreže</h2>
+
+          <div className="social-links">
+            {socials.instagram && (
+              <a
+                href={socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="social-link"
+              >
+                <FaInstagram className="social-icon" />
+                Instagram
+              </a>
+            )}
+
+            {socials.facebook && (
+              <a
+                href={socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="social-link"
+              >
+                <FaFacebookF className="social-icon" />
+                Facebook
+              </a>
+            )}
+          </div>
+        </article>
+      )}
 
       {showContactForm && email && (
         <div
@@ -133,8 +182,19 @@ END:VCARD
               </div>
             ))}
           </div>
-        </article>
+        </article>        
       )}
+
+        <article className="profile-extra-card">
+          <h2 className="profile-section-heading">Podeli profil</h2>
+
+          <div className="qr-wrapper">
+          <QRCodeSVG value={window.location.href} size={140} />
+            <p className="qr-text">
+              Skeniraj kod i otvori profil na telefonu
+            </p>
+          </div>
+        </article>
     </section>
   );
 }

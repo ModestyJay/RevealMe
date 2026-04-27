@@ -6,7 +6,13 @@ import { profiles } from "../data/profiles";
 export default function ProfilePage() {
   const { slug } = useParams();
 
-  const profile = profiles.find((item) => item.slug === slug);
+  const savedProfiles = JSON.parse(
+    localStorage.getItem("revealmeProfiles") || "[]"
+  );
+  
+  const allProfiles = [...profiles, ...savedProfiles];
+  
+  const profile = allProfiles.find((item) => item.slug === slug);
 
   if (!profile) {
     return (
@@ -35,7 +41,8 @@ export default function ProfilePage() {
         image={profile.image}
         about={profile.about}
         services={profile.services}  
-        images={profile.images}      
+        images={profile.images}
+        socials={profile.socials}      
       />
     </Layout>
   );

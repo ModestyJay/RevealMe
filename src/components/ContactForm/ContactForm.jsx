@@ -76,7 +76,7 @@ export default function ContactForm({ profileName, profileEmail, onClose }) {
           required
         />
 
-        <Button variant="primary">Pošalji poruku</Button>
+        <Button variant="primary" type="submit">Pošalji poruku</Button>
 
         {status && <p className="form-status">{status}</p>}
       </form>

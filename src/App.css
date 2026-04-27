@@ -689,6 +689,239 @@ a {
   transform: scale(1.05);
 }
 
+.clear-search-btn {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 20px;
+
+  padding: 10px 20px;
+  border-radius: 999px;
+
+  border: 1px solid #e2d8cc;
+  background: #fff;
+
+  color: #2f2a26;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  box-shadow:
+    0 4px 12px rgba(47, 42, 38, 0.08);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background: #f5f1ea;
+  border-color: #d6c6b4;
+
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 20px rgba(47, 42, 38, 0.12);
+}
+
+.clear-search-btn:active {
+  transform: scale(0.96);
+}
+
+.qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.qr-text {
+  font-size: 14px;
+  color: #6b5c4f;
+  text-align: center;
+}
+
+.search-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+
+  box-shadow:
+    0 10px 28px rgba(47, 42, 38, 0.08);
+
+  transition: all 0.25s ease;
+
+  cursor: pointer;
+}
+
+.search-arrow {
+  font-size: 16px;
+  color: #c4b3a2;
+  transition: transform 0.2s ease;
+}
+
+.search-card:hover .search-arrow {
+  transform: translateX(4px);
+  box-shadow:
+    0 18px 40px rgba(47, 42, 38, 0.12);
+}
+
+.search-card-top {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.search-headings {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.search-category {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #8a6f4d;
+}
+
+.search-location {
+  font-size: 13px;
+  color: #a39280;
+}
+
+.search-description {
+  margin: 14px 0;
+  font-size: 15px;
+  color: #4b3f36;
+  line-height: 1.5;
+}
+
+.search-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+}
+
+.search-phone {
+  color: #6b5c4f;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: #f7f4f1;
+  border: 1px solid rgba(47, 42, 38, 0.08);
+
+  color: #2f2a26;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.social-icon {
+  font-size: 16px;
+}
+
+.social-link:hover {
+  background: #2f2a26;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.register-page {
+  max-width: 860px;
+  margin: 40px auto 0;
+}
+
+.register-intro {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  text-align: center;
+  color: #5f5a55;
+  line-height: 1.7;
+}
+
+.register-form {
+  background: #fff;
+  border: 1px solid rgba(47, 42, 38, 0.08);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 18px 50px rgba(47, 42, 38, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.register-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: #2f2a26;
+}
+
+.register-form input,
+.register-form textarea,
+.register-form select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d8d1c7;
+  border-radius: 14px;
+  background: #fff;
+  color: #2f2a26;
+  font: inherit;
+}
+
+.register-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.register-form input:focus,
+.register-form textarea:focus,
+.register-form select:focus {
+  outline: none;
+  border-color: #b59f7a;
+  box-shadow: 0 0 0 3px rgba(181, 159, 122, 0.12);
+}
+
 @media (max-width: 520px) {
   .profile-actions-grid {
     grid-template-columns: 1fr;
@@ -779,5 +1012,13 @@ a {
 
 .gallery-grid {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.form-grid {
+  grid-template-columns: 1fr;
+}
+
+.register-form {
+  padding: 24px 20px;
 }
 }

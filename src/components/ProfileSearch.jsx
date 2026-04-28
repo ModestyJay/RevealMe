@@ -9,33 +9,39 @@ export default function ProfileSearch() {
   
   const normalizedSearch = searchTerm.trim().toLowerCase();
 
-const categories = [...new Set(profiles.map((profile) => profile.category))]
-  .sort();
+  const savedProfiles = JSON.parse(
+    localStorage.getItem("revealmeProfiles") || "[]"
+  );
+  
+  const allProfiles = [...profiles, ...savedProfiles];
 
-const locations = [...new Set(profiles.map((profile) => profile.location))]
-  .sort();
+  const categories = [...new Set(allProfiles.map((profile) => profile.category))]
+    .sort();
 
-const hasSearch =
-  normalizedSearch !== "" ||
-  selectedCategory !== "" ||
-  selectedLocation !== "";
+  const locations = [...new Set(allProfiles.map((profile) => profile.location))]
+    .sort();
 
-const filteredProfiles = profiles.filter((profile) => {
-  const searchableText = `
-    ${profile.name}
-    ${profile.category}
-    ${profile.location}
-    ${profile.description}
-  `.toLowerCase();
+  const hasSearch =
+    normalizedSearch !== "" ||
+    selectedCategory !== "" ||
+    selectedLocation !== "";
 
-  const matchesText =
-    normalizedSearch === "" || searchableText.includes(normalizedSearch);
+  const filteredProfiles = allProfiles.filter((profile) => {
+    const searchableText = `
+      ${profile.name}
+      ${profile.category}
+      ${profile.location}
+      ${profile.description}
+    `.toLowerCase();
 
-  const matchesCategory =
-    selectedCategory === "" || profile.category === selectedCategory;
+    const matchesText =
+      normalizedSearch === "" || searchableText.includes(normalizedSearch);
 
-  const matchesLocation =
-    selectedLocation === "" || profile.location === selectedLocation;
+    const matchesCategory =
+      selectedCategory === "" || profile.category === selectedCategory;
+
+    const matchesLocation =
+      selectedLocation === "" || profile.location === selectedLocation;
 
   return matchesText && matchesCategory && matchesLocation;
 });

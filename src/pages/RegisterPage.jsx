@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
+import { Link, useNavigate } from "react-router-dom";
 
 const categories = [
     "Keramičar",
@@ -16,15 +16,6 @@ const categories = [
     "IT",
   ];
 
-const handleChange = (e) => {
-  const { name, value } = e.target;
-
-  setForm((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
-
 const createSlug = (text) =>
   text
     .toLowerCase()
@@ -35,40 +26,6 @@ const createSlug = (text) =>
     .replace(/đ/g, "dj")
     .replace(/ž/g, "z")
     .replace(/[^a-z0-9-]/g, "");
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  const newProfile = {
-    id: Date.now(),
-    slug: createSlug(form.name),
-    name: form.name,
-    category: form.category,
-    location: form.location,
-    phone: form.phone,
-    email: form.email,
-    website: form.website,
-    description: form.description,
-    about: "",
-    services: [],
-    images: [],
-    socials: {
-      instagram: "",
-      facebook: "",
-    },
-  };
-
-  const savedProfiles = JSON.parse(
-    localStorage.getItem("revealmeProfiles") || "[]"
-  );
-
-  localStorage.setItem(
-    "revealmeProfiles",
-    JSON.stringify([...savedProfiles, newProfile])
-  );
-
-  navigate(`/profil/${newProfile.slug}`);
-};
 
 export default function RegisterPage() {
     const navigate = useNavigate();
@@ -114,27 +71,28 @@ export default function RegisterPage() {
         },
       };
   
-      const savedProfiles = JSON.parse(
-        localStorage.getItem("revealmeProfiles") || "[]"
+      const savedRequests = JSON.parse(
+        localStorage.getItem("revealmeRequests") || "[]"
       );
-  
+      
       localStorage.setItem(
-        "revealmeProfiles",
-        JSON.stringify([...savedProfiles, newProfile])
+        "revealmeRequests",
+        JSON.stringify([...savedRequests, newProfile])
       );
-  
-      navigate(`/profil/${newProfile.slug}`);
+      
+      navigate("/zahtev-poslat");
     };
   
     return (
     <Layout>
       <section className="register-page">
         <p className="section-label">Registracija</p>
-        <h1 className="section-title">Kreiraj svoj RevealMe profil</h1>
+        <h1 className="section-title">Pošalji zahtev za RevealMe profil</h1>
         <p className="register-intro">
-          Unesi osnovne podatke o svom biznisu. Ovo je prvi korak ka tvojoj digitalnoj ličnoj karti.
-        </p>
-
+          Unesi osnovne podatke o svom biznisu. Ovo je prvi korak ka tvojoj digitalnoj ličnoj karti. 
+          Nakon slanja zahteva, javićemo ti se radi dogovora i aktivacije profila.
+          </p>
+       
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="form-grid">
             <label>
@@ -200,9 +158,14 @@ export default function RegisterPage() {
           </label>
 
           <button type="submit" className="btn btn-primary">
-            Sačuvaj profil
+            Pošalji zahtev
           </button>
         </form>
+        <div className="register-back">
+          <Link to="/" className="btn btn-secondary btn-link">
+            Nazad na početnu
+          </Link>
+        </div>
       </section>
     </Layout>
   );

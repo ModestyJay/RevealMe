@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import RegisterPage from "./pages/RegisterPage";
 import ScrollToTop from "./components/ScrollToTop";
+import RequestSentPage from "./pages/RequestSentPage";
+import AdminRequestsPage from "./pages/AdminRequestsPage";
 
 
 export default function App() {
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/profil/:slug" element={<ProfilePage />} />
         <Route path="/registracija" element={<RegisterPage />} />
+        <Route path="/zahtev-poslat" element={<RequestSentPage />} />
+        <Route path="/admin/zahtevi" element={<AdminRequestsPage />} />
       </Routes>
     </>
   );

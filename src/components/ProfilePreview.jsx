@@ -311,6 +311,30 @@ END:VCARD
               </button>
             </div>
           )}
+
+          {appPhone && (
+            <div className="sticky-contact-bar">
+              <a href={`tel:${cleanPhone}`} className="sticky-contact-link">
+                Pozovi
+              </a>
+
+              <a
+                href={`https://wa.me/${appPhone}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noreferrer"
+                className="sticky-contact-link"
+              >
+                WhatsApp
+              </a>
+
+              <a
+                href={`viber://chat?number=%2B${appPhone}`}
+                className="sticky-contact-link"
+              >
+                Viber
+              </a>
+            </div>
+          )}
     </section>
   );
 }

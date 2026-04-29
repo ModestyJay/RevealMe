@@ -3,7 +3,8 @@ import ContactForm from "./ContactForm/ContactForm";
 import Avatar from "./Avatar/Avatar";
 import Button from "./Button/Button";
 import { QRCodeSVG } from "qrcode.react";
-import { FaInstagram, FaFacebookF } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaViber } from "react-icons/fa";
+import { formatPhoneForApps } from "../utils/formatPhone";
 import { useRef } from "react";
 
 
@@ -26,6 +27,12 @@ export default function ProfilePreview({
   const [showContactForm, setShowContactForm] = useState(false);
 
   const cleanPhone = phone?.replace(/\s+/g, "") || "";
+
+  const appPhone = formatPhoneForApps(phone);
+
+  const whatsappMessage = encodeURIComponent(
+    `Zdravo ${name}, pronašao/la sam vaš profil na RevealMe i zanima me više informacija o vašim uslugama.`
+  );
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -138,12 +145,12 @@ END:VCARD
         </div>
       </article>
 
-      {socials && (socials.instagram || socials.facebook) && (
+      {(socials?.instagram || socials?.facebook || appPhone) && (
         <article className="profile-extra-card">
-          <h2 className="profile-section-heading">Društvene mreže</h2>
+          <h2 className="profile-section-heading">Kontakt preko aplikacija</h2>
 
           <div className="social-links">
-            {socials.instagram && (
+            {socials?.instagram && (
               <a
                 href={socials.instagram}
                 target="_blank"
@@ -155,7 +162,7 @@ END:VCARD
               </a>
             )}
 
-            {socials.facebook && (
+            {socials?.facebook && (
               <a
                 href={socials.facebook}
                 target="_blank"
@@ -164,6 +171,28 @@ END:VCARD
               >
                 <FaFacebookF className="social-icon" />
                 Facebook
+              </a>
+            )}
+
+            {appPhone && (
+              <a
+              href={`https://wa.me/${appPhone}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noreferrer"
+                className="social-link"
+              >
+                <FaWhatsapp className="social-icon" />
+                WhatsApp
+              </a>
+            )}
+
+            {appPhone && (
+              <a
+                href={`viber://chat?number=%2B${appPhone}`}
+                className="social-link"
+              >
+                <FaViber className="social-icon" />
+                Viber
               </a>
             )}
           </div>

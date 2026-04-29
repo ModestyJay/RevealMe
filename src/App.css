@@ -821,16 +821,16 @@ a {
 }
 
 .social-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .social-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  justify-content: center;
 
   min-height: 44px;
   padding: 10px 18px;
@@ -2058,29 +2058,32 @@ a {
 }
 
 .social-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  flex-wrap: wrap;
+}
+
+.social-links {
+  grid-template-columns: repeat(1, 200px);
   justify-content: center;
 }
 
 .social-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 
-  min-height: 44px;
-  padding: 10px 18px;
+  width: 100%;
+  padding: 12px 14px;
+
   border-radius: 999px;
-
-  background: #f7f4f1;
-  border: 1px solid rgba(47, 42, 38, 0.08);
-
-  color: #2f2a26;
-  font-weight: 700;
   text-decoration: none;
+  font-weight: 600;
 
-  transition: all 0.2s ease;
+  background: #f2ede6;
+  color: #2f2a26;
+  border: 1px solid rgba(47, 42, 38, 0.12);
 }
 
 .social-icon {
@@ -2088,9 +2091,8 @@ a {
 }
 
 .social-link:hover {
-  background: #2f2a26;
-  color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
 .register-page {

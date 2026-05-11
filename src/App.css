@@ -936,6 +936,68 @@ a {
   color: #5a514a;
 }
 
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-card-header h2 {
+  margin: 0;
+}
+
+.admin-status-select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #d8d1c7;
+  background: #f7f4f1;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.admin-card-fields {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.admin-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-count {
+  font-size: 14px;
+  color: #7b746c;
+  font-weight: 600;
+}
+
+.admin-card-fields p {
+  text-align: left;
+  margin: 6px 0;
+}
+
+.admin-card-header h2 {
+  font-size: 20px;
+  color: #11110f;
+  margin: 0;
+}
+
+.btn-danger {
+  background: #fff0f0;
+  color: #c0392b;
+  border: 1px solid #f5c6c6;
+}
+
+.btn-danger:hover {
+  background: #ffe0e0;
+}
+
 .admin-requests {
   max-width: 900px;
   margin: 60px auto 0;
@@ -969,12 +1031,6 @@ a {
 .admin-request-card h2 {
   margin: 0 0 14px;
   font-size: 24px;
-}
-
-.admin-request-card p {
-  margin: 8px 0;
-  color: #4f4943;
-  line-height: 1.5;
 }
 
 .request-home-btn {
@@ -2140,6 +2196,10 @@ a {
 .social-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.hide-on-mobile {
+  display: none;
 }
 
 .register-page {

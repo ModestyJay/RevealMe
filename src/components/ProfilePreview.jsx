@@ -112,10 +112,7 @@ END:VCARD
         </p>
 
         <div className="profile-actions profile-actions-grid">
-            <Button href={`tel:${cleanPhone}`} fullWidth>
-              Pozovi
-            </Button>
-
+        
         {email && (
             <Button
               variant="secondary"
@@ -179,7 +176,7 @@ END:VCARD
               href={`https://wa.me/${appPhone}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noreferrer"
-                className="social-link"
+                className="social-link hide-on-mobile"
               >
                 <FaWhatsapp className="social-icon" />
                 WhatsApp
@@ -189,7 +186,7 @@ END:VCARD
             {appPhone && (
               <a
                 href={`viber://chat?number=%2B${appPhone}`}
-                className="social-link"
+                className="social-link hide-on-mobile"
               >
                 <FaViber className="social-icon" />
                 Viber

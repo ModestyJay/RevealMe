@@ -1,0 +1,16 @@
+/* ============================================================
+   STYLES/INDEX.CSS
+   Centralni fajl koji importuje sve CSS module.
+   Redosled je bitan — base uvek prvi, responsive uvek poslednji.
+   ============================================================ */
+
+@import "./base.css";
+@import "./animations.css";
+@import "./buttons.css";
+@import "./header.css";
+@import "./home.css";
+@import "./profile.css";
+@import "./search.css";
+@import "./register.css";
+@import "./admin.css";
+@import "./responsive.css";

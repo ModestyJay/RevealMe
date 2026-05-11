@@ -1,0 +1,159 @@
+/* ============================================================
+   RESPONSIVE — svi media query-ji na jednom mestu
+   ============================================================ */
+
+/* Sticky contact bar — skrivanje na desktopu */
+@media (min-width: 768px) {
+  .sticky-contact-bar {
+    display: none;
+  }
+}
+
+/* Tablet / manji desktop */
+@media (max-width: 900px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-header h2 {
+    font-size: 26px;
+  }
+}
+
+/* Mobilni */
+@media (max-width: 768px) {
+  .page {
+    padding: 40px 0 64px;
+  }
+
+  .container {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .subtitle {
+    font-size: 18px;
+    margin-top: 22px;
+  }
+
+  .how-it-works,
+  .profile-preview {
+    margin-top: 48px;
+  }
+
+  .step-card {
+    min-height: unset;
+  }
+
+  .profile-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .profile-top {
+    align-items: flex-start;
+  }
+
+  .profile-name {
+    font-size: 26px;
+  }
+
+  .search-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .register-form {
+    padding: 24px 20px;
+  }
+
+  /* Hamburger meni */
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 64px;
+    right: 20px;
+
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px;
+
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 18px 40px rgba(47, 42, 38, 0.12);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+
+    transition: all 0.2s ease;
+  }
+  
+  .nav-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Panel rezultata */
+  .search-results-panel {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding: 18px;
+    border-radius: 26px 26px 0 0;
+  }
+
+  .results-panel-header {
+    position: sticky;
+    top: 72px;
+    z-index: 5;
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Mali mobilni */
+@media (max-width: 520px) {
+  .profile-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card-main {
+    padding: 24px 20px;
+  }
+
+  .profile-extra-card {
+    padding: 24px 20px;
+  }
+
+  .actions,
+  .profile-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn,
+  .btn-link {
+    width: 100%;
+  }
+
+  .profile-top-centered {
+    flex-direction: column;
+    align-items: center;
+  }
+}

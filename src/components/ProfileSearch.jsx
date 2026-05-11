@@ -6,13 +6,14 @@ export default function ProfileSearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
-  
+  const [showResults, setShowResults] = useState(false);
+
   const normalizedSearch = searchTerm.trim().toLowerCase();
 
   const savedProfiles = JSON.parse(
     localStorage.getItem("revealmeProfiles") || "[]"
   );
-  
+
   const allProfiles = [...profiles, ...savedProfiles];
 
   const categories = [...new Set(allProfiles.map((profile) => profile.category))]
@@ -43,8 +44,15 @@ export default function ProfileSearch() {
     const matchesLocation =
       selectedLocation === "" || profile.location === selectedLocation;
 
-  return matchesText && matchesCategory && matchesLocation;
-});
+    return matchesText && matchesCategory && matchesLocation;
+  });
+
+  function handleClearSearch() {
+    setSearchTerm("");
+    setSelectedCategory("");
+    setSelectedLocation("");
+    setShowResults(false);
+  }
 
   return (
     <section className="profile-search">
@@ -59,13 +67,19 @@ export default function ProfileSearch() {
           type="text"
           placeholder="Pretraži po nazivu..."
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setShowResults(false);
+          }}
           className="search-input"
         />
 
         <select
           value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
+          onChange={(e) => {
+            setSelectedCategory(e.target.value);
+            setShowResults(false);
+          }}
           className="search-select"
         >
           <option value="">Sve kategorije</option>
@@ -78,7 +92,10 @@ export default function ProfileSearch() {
 
         <select
           value={selectedLocation}
-          onChange={(e) => setSelectedLocation(e.target.value)}
+          onChange={(e) => {
+            setSelectedLocation(e.target.value);
+            setShowResults(false);
+          }}
           className="search-select"
         >
           <option value="">Sve lokacije</option>
@@ -90,45 +107,69 @@ export default function ProfileSearch() {
         </select>
       </div>
 
-      {hasSearch && (
-        <button
-          type="button"
-          className="clear-search-btn"
-          onClick={() => {
-            setSearchTerm("");
-            setSelectedCategory("");
-            setSelectedLocation("");
-          }}
-        >
-          Očisti pretragu
-        </button>
-      )}
-
       {!hasSearch && (
         <p className="search-hint">
-            🔍 Unesi naziv, kategoriju ili lokaciju da pronađeš profil.
+          🔍 Unesi naziv, kategoriju ili lokaciju da pronađeš profil.
         </p>
-        )}
+      )}
+
       {hasSearch && (
-    <div className="search-results">
-        {filteredProfiles.length > 0 ? (
-        filteredProfiles.map((profile) => (
-            <ProfileSearchCard
-            key={profile.id}
-            slug={profile.slug}
-            name={profile.name}
-            category={profile.category}
-            location={profile.location}
-            description={profile.description}
-            phone={profile.phone}
-            image={profile.image}
-            />
-        ))
-        ) : (
-        <p className="no-results">Nema rezultata za zadate kriterijume.</p>
-        )}
-    </div>
-)}
+        <div className="search-actions">
+          <button
+            type="button"
+            className="show-results-btn"
+            onClick={() => setShowResults(true)}
+          >
+            Prikaži rezultate ({filteredProfiles.length})
+          </button>
+
+          <button
+            type="button"
+            className="clear-search-btn"
+            onClick={handleClearSearch}
+          >
+            Očisti pretragu
+          </button>
+        </div>
+      )}
+
+      {hasSearch && showResults && (
+        <div className="search-results-panel">
+          <div className="results-panel-header">
+            <div>
+              <p className="section-label">Rezultati</p>
+              <h3>Pronađeni profili</h3>
+            </div>
+
+            <button
+              type="button"
+              className="edit-search-btn"
+              onClick={() => setShowResults(false)}
+            >
+              Izmeni pretragu
+            </button>
+          </div>
+
+          <div className="search-results">
+            {filteredProfiles.length > 0 ? (
+              filteredProfiles.map((profile) => (
+                <ProfileSearchCard
+                  key={profile.id || profile.slug}
+                  slug={profile.slug}
+                  name={profile.name}
+                  category={profile.category}
+                  location={profile.location}
+                  description={profile.description}
+                  phone={profile.phone}
+                  image={profile.image}
+                />
+              ))
+            ) : (
+              <p className="no-results">Nema rezultata za zadate kriterijume.</p>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

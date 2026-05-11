@@ -1,0 +1,244 @@
+/* ============================================================
+   SEARCH — pretraga profila i rezultati
+   ============================================================ */
+
+.profile-search {
+  margin-top: 80px;
+}
+
+.search-intro {
+  max-width: 620px;
+  margin: 0 auto 32px;
+  text-align: center;
+  color: #5f5a55;
+  line-height: 1.6;
+}
+
+/* Kontrole pretrage */
+
+.search-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.search-input,
+.search-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d8d1c7;
+  border-radius: 14px;
+  font: inherit;
+  background: #fff;
+  color: #2f2a26;
+}
+
+.search-input:focus,
+.search-select:focus {
+  outline: none;
+  border-color: #b59f7a;
+  box-shadow: 0 0 0 3px rgba(181, 159, 122, 0.12);
+}
+
+/* Akcije pretrage */
+
+.search-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.show-results-btn {
+  background: #2f2a26;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.show-results-btn:hover {
+  background: #211d1a;
+  transform: translateY(-1px);
+}
+
+.edit-search-btn {
+  background: #f7f4f1;
+  color: #2f2a26;
+  border: 1px solid #d8d1c7;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.edit-search-btn:hover {
+  background: #f1ece5;
+  transform: translateY(-1px);
+}
+
+.search-hint {
+  text-align: center;
+  color: #8a8179;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.show-results-btn,
+.edit-search-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clear-search-btn {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 20px;
+
+  padding: 10px 20px;
+  border-radius: 999px;
+
+  border: 1px solid #e2d8cc;
+  background: #fff;
+
+  color: #2f2a26;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  box-shadow: 0 4px 12px rgba(47, 42, 38, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background: #f5f1ea;
+  border-color: #d6c6b4;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(47, 42, 38, 0.12);
+}
+
+.clear-search-btn:active {
+  transform: scale(0.96);
+}
+
+/* Panel rezultata */
+
+.search-results {
+  display: grid;
+  gap: 20px;
+}
+
+.search-results-panel {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 45px rgba(47, 42, 38, 0.12);
+}
+
+.results-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.results-panel-header h3 {
+  margin: 4px 0 0;
+}
+
+/* Kartice rezultata */
+
+.search-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(47, 42, 38, 0.08);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.search-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.search-card-top {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.search-headings {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.search-category {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #8a6f4d;
+}
+
+.search-location {
+  font-size: 13px;
+  color: #a39280;
+}
+
+.search-description {
+  margin: 14px 0;
+  font-size: 15px;
+  color: #4b3f36;
+  line-height: 1.5;
+}
+
+.search-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.search-phone {
+  color: #6b5c4f;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.search-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #6b655e;
+  font-size: 0.95rem;
+}
+
+.search-arrow {
+  font-size: 16px;
+  color: #c4b3a2;
+  transition: transform 0.2s ease;
+}
+
+.search-card:hover .search-arrow {
+  transform: translateX(4px);
+}
+
+.no-results {
+  text-align: center;
+  color: #7b746c;
+  padding: 24px 0;
+}

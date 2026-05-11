@@ -1,0 +1,104 @@
+/* ============================================================
+   ADMIN — admin panel i potvrda zahteva
+   ============================================================ */
+
+/* Admin lista zahteva */
+
+.admin-requests {
+  max-width: 900px;
+  margin: 60px auto 0;
+}
+
+.admin-empty {
+  text-align: center;
+  color: #6f675f;
+  font-size: 17px;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.admin-count {
+  font-size: 14px;
+  color: #7b746c;
+  font-weight: 600;
+}
+
+.admin-request-list {
+  display: grid;
+  gap: 18px;
+}
+
+/* Admin kartica zahteva */
+
+.admin-request-card {
+  background: #fff;
+  border: 1px solid rgba(47, 42, 38, 0.08);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 12px 34px rgba(47, 42, 38, 0.06);
+}
+
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-card-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #11110f;
+}
+
+.admin-status-select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #d8d1c7;
+  background: #f7f4f1;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.admin-card-fields {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.admin-card-fields p {
+  text-align: left;
+  margin: 6px 0;
+}
+
+.admin-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Stranica potvrde zahteva */
+
+.request-sent {
+  max-width: 720px;
+  margin: 80px auto 0;
+  text-align: center;
+}
+
+.request-text {
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #5a514a;
+}
+
+.request-home-btn {
+  margin-top: 28px;
+}

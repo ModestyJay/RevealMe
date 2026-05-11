@@ -1,0 +1,80 @@
+/* ============================================================
+   HEADER — navigacija, logo, hamburger meni
+   ============================================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(248, 246, 242, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(47, 42, 38, 0.08);
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #2f2a26;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  color: #5a514a;
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background: #ffffff;
+  color: #2f2a26;
+  box-shadow: 0 8px 20px rgba(47, 42, 38, 0.08);
+}
+
+.nav-cta {
+  background: #2f2a26;
+  color: #fff;
+}
+
+.nav-cta:hover {
+  background: #211d1a;
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

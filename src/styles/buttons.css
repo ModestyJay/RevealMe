@@ -1,0 +1,72 @@
+/* ============================================================
+   BUTTONS — sve .btn varijante
+   ============================================================ */
+
+.btn {
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn,
+.btn:visited,
+.btn:hover,
+.btn:active {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #2f2a26;
+  color: white;
+  border: 1px solid #2f2a26;
+  box-shadow: 0 10px 24px rgba(47, 42, 38, 0.12);
+}
+
+.btn-primary:hover {
+  background: #211d1a;
+  border-color: #211d1a;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.65);
+  color: #2f2a26;
+  border: 1px solid #d7cfc6;
+}
+
+.btn-secondary:hover {
+  background: #f1ece5;
+  transform: translateY(-1px);
+}
+
+.btn-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active,
+.btn-link:visited {
+  text-decoration: none;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-danger {
+  background: #fff0f0;
+  color: #c0392b;
+  border: 1px solid #f5c6c6;
+}
+
+.btn-danger:hover {
+  background: #ffe0e0;
+}
